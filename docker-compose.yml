@@ -54,10 +54,22 @@ services:
       - esnet
     restart: always
 
+  postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata01:/var/lib/postgresql/data/
+
 
 volumes:
   esdata01:
     driver: local
+  pgdata01:
 
 networks:
   esnet:
