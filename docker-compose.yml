@@ -65,6 +65,12 @@ services:
     volumes:
       - pgdata01:/var/lib/postgresql/data/
 
+  php:
+    build: ./docker/php
+    volumes:
+      - .:/var/www
+    working_dir: /var/www
+
 
 volumes:
   esdata01:
